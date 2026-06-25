@@ -739,7 +739,7 @@ async function deleteApp() {
 // ─── EXPORT CSV ───
 function exportCSV() {
   if (!cachedApps.length) { alert('No applications to export.'); return; }
-  const keys = ['applicant_name','discord','age','country','timezone','community_length','hours','play_length','server_types','hours_week','active_days','active_times','why_staff','qualities','important_quality','stress_handling','scenario_1','scenario_2','scenario_3','scenario_4','community_success','improve','motivation','about','hobbies','interests','why_you','goals','signature','status','admin_notes','submitted_at'];
+  const keys = ['applicant_name','discord','age','country','timezone','community_length','hours','play_length','server_types','hours_week','active_days','active_times','why_staff','qualities','important_quality','stress_handling','scenario_1','scenario_2','scenario_3','scenario_4','community_success','improve','motivation','why_you','goals','signature','status','admin_notes','submitted_at'];
   const csv  = [keys.join(','), ...cachedApps.map(a => keys.map(k => '"' + String(a[k]||'').replace(/"/g,'""') + '"').join(','))].join('\n');
   const a    = document.createElement('a');
   a.href = URL.createObjectURL(new Blob([csv], { type: 'text/csv' }));
