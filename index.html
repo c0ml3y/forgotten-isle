@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Forgotten Isle Staff Application</title>
+<title>DayZ Staff Application</title>
 <style>
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body {
@@ -171,7 +171,7 @@ textarea { resize: vertical; line-height: 1.6; }
 
   <header>
     <img src="1_FI_BadgeFIXED.png" alt="Forgotten Isle DayZ" class="logo-img">
-    <h1>Forgotten Isle Staff Application</h1>
+    <h1>Staff Application</h1>
     <p>Thank you for your interest in joining the staff team.<br>
     Please complete all sections as honestly and thoroughly as possible.<br>
     Short or low-effort applications may not be considered.</p>
@@ -199,6 +199,54 @@ textarea { resize: vertical; line-height: 1.6; }
           <div class="field"><label>Total Hours in DayZ <span class="required-star">*</span></label><input type="text" name="hours" placeholder="e.g. 1,200 hours" required></div>
           <div class="field"><label>How long have you been playing DayZ?</label><input type="text" name="play_length" placeholder="e.g. 3 years"></div>
           <div class="field span2"><label>Server types played</label><input type="text" name="server_types" placeholder="e.g. PvP, Modded, Vanilla"></div>
+        </div>
+        <div class="divider"></div>
+        <label style="display:block; margin-bottom:0.75rem; font-size:0.8rem; color:#aaa; text-transform:uppercase; letter-spacing:0.03em;">&#128295; Modding &amp; Technical Knowledge</label>
+        <div class="field-grid">
+          <div class="field">
+            <label>DayZ Modding Experience</label>
+            <select name="skill_modding">
+              <option value="" disabled selected>Select level...</option>
+              <option value="None">None — no experience</option>
+              <option value="Beginner">Beginner — installed/used mods as a player</option>
+              <option value="Intermediate">Intermediate — configured mods / edited files</option>
+              <option value="Advanced">Advanced — created or scripted custom mods</option>
+              <option value="Expert">Expert — full mod development experience</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Server Administration</label>
+            <select name="skill_server_admin">
+              <option value="" disabled selected>Select level...</option>
+              <option value="None">None — no experience</option>
+              <option value="Beginner">Beginner — aware of how servers work</option>
+              <option value="Intermediate">Intermediate — managed/configured a server</option>
+              <option value="Advanced">Advanced — ran own server with mods</option>
+              <option value="Expert">Expert — full server ownership &amp; management</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>XML / Config File Editing</label>
+            <select name="skill_xml">
+              <option value="" disabled selected>Select level...</option>
+              <option value="None">None</option>
+              <option value="Beginner">Beginner — basic edits with guidance</option>
+              <option value="Intermediate">Intermediate — comfortable editing configs</option>
+              <option value="Advanced">Advanced — confident editing all DayZ XML files</option>
+              <option value="Expert">Expert — deep knowledge of DayZ config structure</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Scripting / Programming</label>
+            <select name="skill_scripting">
+              <option value="" disabled selected>Select level...</option>
+              <option value="None">None</option>
+              <option value="Beginner">Beginner — basic understanding</option>
+              <option value="Intermediate">Intermediate — written simple scripts</option>
+              <option value="Advanced">Advanced — SQF / Enforce Script experience</option>
+              <option value="Expert">Expert — professional programming background</option>
+            </select>
+          </div>
         </div>
         <div class="divider"></div>
         <label style="display:block; margin-bottom:0.75rem;">Previous Staff Experience</label>
@@ -250,17 +298,17 @@ textarea { resize: vertical; line-height: 1.6; }
       <div class="section-body">
         <div class="field-grid single">
           <div class="field">
-            <div class="scenario-box"><span class="scenario-num">SCENARIO 1</span><br>A player opens a ticket claiming they have been killed By A Cheater , They provide no evidence and the accused player denies any wrongdoing. How would you handle this situation?</div>
+            <div class="scenario-box"><span class="scenario-num">SCENARIO 1</span><br>A player opens a ticket claiming they have been killed unfairly. They provide no evidence and the accused player denies any wrongdoing. How would you handle this situation?</div>
             <label>Your Answer <span class="required-star">*</span></label>
             <textarea name="scenario_1" rows="5" placeholder="Describe how you would handle this..." required></textarea>
           </div>
           <div class="field">
-            <div class="scenario-box"><span class="scenario-num">SCENARIO 2</span><br>A player becomes angry and starts insulting staff after being told that their ticket cannot be acted upon. How would you respond?</div>
+            <div class="scenario-box"><span class="scenario-num">SCENARIO 2</span><br>A player becomes angry and starts insulting staff after being told that their ticket cannot be actioned. How would you respond?</div>
             <label>Your Answer <span class="required-star">*</span></label>
             <textarea name="scenario_2" rows="5" placeholder="Describe how you would respond..." required></textarea>
           </div>
           <div class="field">
-            <div class="scenario-box"><span class="scenario-num">SCENARIO 3</span><br>You witness another staff member making a mistake while acting unprofessionally. How would you handle the situation?</div>
+            <div class="scenario-box"><span class="scenario-num">SCENARIO 3</span><br>You witness another staff member making a mistake or acting unprofessionally. How would you handle the situation?</div>
             <label>Your Answer <span class="required-star">*</span></label>
             <textarea name="scenario_3" rows="5" placeholder="Describe how you would handle this..." required></textarea>
           </div>
@@ -314,14 +362,64 @@ textarea { resize: vertical; line-height: 1.6; }
     <div class="success-msg" id="successMsg">&#10003; &nbsp; Application submitted successfully! Thank you for applying.</div>
   </form>
 
-  <div class="admin-link-bar"><a href="#" onclick="showView('login'); return false;">&#128274; Admin Login</a></div>
+  <div class="admin-link-bar">
+    <a href="#" onclick="showView('status'); return false;">&#128269; Check Application Status</a>
+    &nbsp;&nbsp;|&nbsp;&nbsp;
+    <a href="#" onclick="showView('login'); return false;">&#128274; Admin Login</a>
+  </div>
 </div>
 </div>
 </div>
 
 
 <!-- ════════════════════════════════════════
-     VIEW 2 — ADMIN LOGIN
+     VIEW 2 — STATUS CHECKER
+════════════════════════════════════════ -->
+<div id="view-status" class="view">
+  <div style="display:flex; align-items:center; justify-content:center; min-height:100vh; padding:2rem;">
+    <div class="login-card" style="max-width:480px;">
+      <img src="1_FI_BadgeFIXED.png" alt="Forgotten Isle" class="login-logo">
+      <h2>&#128269; Application Status</h2>
+      <p>Enter your Discord username to check the status of your application.</p>
+      <div class="login-field" style="text-align:left;">
+        <label>Discord Username</label>
+        <input type="text" id="statusDiscord" placeholder="e.g. username#0000" autocomplete="off" onkeydown="if(event.key==='Enter')checkStatus()">
+      </div>
+      <button class="btn-login" onclick="checkStatus()">Check Status</button>
+
+      <div id="statusResult" style="display:none; margin-top:1.5rem; text-align:left;">
+        <div id="statusCard" style="background:#0d0d1a; border:1px solid #2a2a50; border-radius:8px; padding:1.25rem; margin-top:0.5rem;">
+          <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:1rem;">
+            <div>
+              <div style="font-size:0.75rem; color:#666; text-transform:uppercase; letter-spacing:0.05em;">Applicant</div>
+              <div id="statusName" style="color:#eee; font-weight:500; margin-top:2px;"></div>
+              <div id="statusDiscordTag" style="color:#666; font-size:0.82rem;"></div>
+            </div>
+            <span id="statusBadge" class="status-badge"></span>
+          </div>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:0.75rem;">
+            <div>
+              <div style="font-size:0.75rem; color:#666; text-transform:uppercase; letter-spacing:0.04em;">Submitted</div>
+              <div id="statusDate" style="color:#aaa; font-size:0.88rem; margin-top:2px;"></div>
+            </div>
+            <div>
+              <div style="font-size:0.75rem; color:#666; text-transform:uppercase; letter-spacing:0.04em;">DayZ Hours</div>
+              <div id="statusHours" style="color:#aaa; font-size:0.88rem; margin-top:2px;"></div>
+            </div>
+          </div>
+          <div id="statusMessage" style="margin-top:1rem; padding:0.75rem; background:#1a1a35; border-radius:6px; font-size:0.88rem; color:#aaa; line-height:1.6;"></div>
+        </div>
+      </div>
+
+      <div id="statusErr" style="display:none; color:#e05a5a; font-size:0.85rem; margin-top:0.75rem;"></div>
+      <a href="#" class="back-link" onclick="showView('form'); return false;">&#8592; Back to application form</a>
+    </div>
+  </div>
+</div>
+
+
+<!-- ════════════════════════════════════════
+     VIEW 3 — ADMIN LOGIN
 ════════════════════════════════════════ -->
 <div id="view-login" class="view">
   <div style="display:flex; align-items:center; justify-content:center; min-height:100vh; padding:2rem;">
@@ -491,17 +589,80 @@ async function handleSubmit(e) {
 
   try {
     await sbInsert(data);
-    document.getElementById('successMsg').style.display = 'block';
+
+    const msg = document.getElementById('successMsg');
+    msg.style.display = 'block';
     btn.textContent = 'Submitted ✓';
-    e.target.reset();
-    document.getElementById('dateField').valueAsDate = new Date();
+    window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+
+    setTimeout(() => {
+      e.target.reset();
+      document.getElementById('dateField').valueAsDate = new Date();
+      msg.style.display = 'none';
+      btn.textContent = 'Submit Application';
+      btn.disabled = false;
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, 4000);
+
   } catch(err) {
     btn.disabled = false;
     btn.textContent = 'Submit Application';
     alert('Submission failed — please check your connection and try again.\n\n' + err.message);
     console.error(err);
   }
-  window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+}
+
+// ─── STATUS CHECKER ───
+const STATUS_MESSAGES = {
+  pending:  'Your application has been received and is currently in the queue waiting to be reviewed by our staff team. Please be patient — we will get to it soon!',
+  review:   'Great news — your application is currently being reviewed by our staff team. We will be in touch shortly with a decision.',
+  accepted: '🎉 Congratulations! Your application has been accepted. Please check your Discord for further instructions from the staff team.',
+  rejected: 'Unfortunately your application was not successful at this time. You are welcome to reapply in the future. Thank you for your interest in Forgotten Isle.'
+};
+
+async function checkStatus() {
+  const discord = document.getElementById('statusDiscord').value.trim();
+  const errEl   = document.getElementById('statusErr');
+  const resEl   = document.getElementById('statusResult');
+
+  errEl.style.display = 'none';
+  resEl.style.display = 'none';
+
+  if (!discord) { errEl.textContent = '✗ Please enter your Discord username.'; errEl.style.display = 'block'; return; }
+
+  const btn = document.querySelector('#view-status .btn-login');
+  btn.textContent = 'Checking…';
+  btn.disabled = true;
+
+  try {
+    const encoded = encodeURIComponent(discord);
+    const res = await fetch(`${SB_URL}/rest/v1/applications?discord=ilike.${encoded}&order=submitted_at.desc&limit=1&select=applicant_name,discord,status,submitted_at,hours`, { headers: HEADERS });
+    if (!res.ok) throw new Error(await res.text());
+    const apps = await res.json();
+
+    if (!apps.length) {
+      errEl.textContent = '✗ No application found for that Discord username. Double check the spelling and try again.';
+      errEl.style.display = 'block';
+    } else {
+      const app = apps[0];
+      const status = app.status || 'pending';
+      document.getElementById('statusName').textContent       = app.applicant_name || '—';
+      document.getElementById('statusDiscordTag').textContent = app.discord || '';
+      document.getElementById('statusDate').textContent       = app.submitted_at ? new Date(app.submitted_at).toLocaleDateString('en-GB', { day:'2-digit', month:'short', year:'numeric' }) : '—';
+      document.getElementById('statusHours').textContent      = app.hours || '—';
+      document.getElementById('statusMessage').textContent    = STATUS_MESSAGES[status] || STATUS_MESSAGES.pending;
+      const badge = document.getElementById('statusBadge');
+      badge.textContent  = statusLabel(status);
+      badge.className    = 'status-badge status-' + status;
+      resEl.style.display = 'block';
+    }
+  } catch(err) {
+    errEl.textContent = '✗ Error checking status: ' + err.message;
+    errEl.style.display = 'block';
+  }
+
+  btn.textContent = 'Check Status';
+  btn.disabled = false;
 }
 
 // ─── LOGIN ───
@@ -634,6 +795,10 @@ function openModal(id) {
         ${row('Hours', app.hours)}
         ${row('Time Playing', app.play_length)}
         ${row('Server Types', app.server_types, true)}
+        ${row('Modding Experience', app.skill_modding)}
+        ${row('Server Administration', app.skill_server_admin)}
+        ${row('XML / Config Editing', app.skill_xml)}
+        ${row('Scripting / Programming', app.skill_scripting)}
         ${row('Prev Server 1', app.prev_server_1 ? `${app.prev_server_1} — ${app.prev_role_1} (${app.prev_length_1}) — ${app.prev_reason_1}` : '—', true)}
         ${row('Prev Server 2', app.prev_server_2 ? `${app.prev_server_2} — ${app.prev_role_2} (${app.prev_length_2}) — ${app.prev_reason_2}` : '—', true)}
       </div>
@@ -664,7 +829,14 @@ function openModal(id) {
         ${row('Scenario 4', app.scenario_4, true)}
       </div>
     </div>
-
+    <div class="modal-section">
+      <h4>&#129309; Community &amp; Personal</h4>
+      <div class="modal-grid">
+        ${row('Successful community', app.community_success, true)}
+        ${row('Improvements', app.improve, true)}
+        ${row('Motivation', app.motivation, true)}
+      </div>
+    </div>
     <div class="modal-section">
       <h4>&#127919; Final</h4>
       <div class="modal-grid">
@@ -739,7 +911,7 @@ async function deleteApp() {
 // ─── EXPORT CSV ───
 function exportCSV() {
   if (!cachedApps.length) { alert('No applications to export.'); return; }
-  const keys = ['applicant_name','discord','age','country','timezone','community_length','hours','play_length','server_types','hours_week','active_days','active_times','why_staff','qualities','important_quality','stress_handling','scenario_1','scenario_2','scenario_3','scenario_4','community_success','improve','motivation','why_you','goals','signature','status','admin_notes','submitted_at'];
+  const keys = ['applicant_name','discord','age','country','timezone','community_length','hours','play_length','server_types','skill_modding','skill_server_admin','skill_xml','skill_scripting','hours_week','active_days','active_times','why_staff','qualities','important_quality','stress_handling','scenario_1','scenario_2','scenario_3','scenario_4','community_success','improve','motivation','why_you','goals','signature','status','admin_notes','submitted_at'];
   const csv  = [keys.join(','), ...cachedApps.map(a => keys.map(k => '"' + String(a[k]||'').replace(/"/g,'""') + '"').join(','))].join('\n');
   const a    = document.createElement('a');
   a.href = URL.createObjectURL(new Blob([csv], { type: 'text/csv' }));
