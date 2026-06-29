@@ -281,7 +281,32 @@ textarea { resize: vertical; line-height: 1.6; }
   header h1 { font-size: 1.4rem; }
   .sidebar { width: 240px; right: -240px; }
 }
-/* ─── HALL OF FAME ─── */
+/* ─── ADMIN TABS ─── */
+.admin-tabs { display: flex; gap: 0; border-bottom: 1px solid #2a2a50; margin-bottom: 1.5rem; }
+.admin-tab { background: transparent; border: none; border-bottom: 2px solid transparent; color: #666; font-size: 0.88rem; padding: 0.75rem 1.25rem; cursor: pointer; font-family: inherit; transition: all 0.2s; letter-spacing: 0.03em; }
+.admin-tab:hover { color: #aaa; }
+.admin-tab.active { color: #e8b84b; border-bottom-color: #e8b84b; }
+.admin-tab-panel { display: none; }
+.admin-tab-panel.active { display: block; }
+
+/* ─── DONOR ADMIN ─── */
+.donor-row { display: flex; align-items: center; gap: 0.75rem; background: #0d0d1a; border: 1px solid #2a2a50; border-radius: 6px; padding: 0.65rem 0.9rem; margin-bottom: 0.5rem; }
+.donor-row input { background: transparent; border: none; color: #eee; font-size: 0.9rem; flex: 1; padding: 0; }
+.donor-row input:focus { outline: none; }
+.donor-row select { background: #0d0d1a; border: 1px solid #2a2a50; border-radius: 4px; color: #aaa; font-size: 0.8rem; padding: 0.2rem 0.4rem; }
+.donor-row .drag-handle { color: #333; cursor: grab; font-size: 1rem; padding: 0 4px; }
+.btn-danger-sm { background: transparent; border: 1px solid #3a1a1a; color: #884444; border-radius: 4px; padding: 0.25rem 0.6rem; font-size: 0.8rem; cursor: pointer; }
+.btn-danger-sm:hover { border-color: #e05a5a; color: #e05a5a; }
+.btn-add { background: rgba(232,184,75,0.1); border: 1px dashed #e8b84b; color: #e8b84b; border-radius: 6px; padding: 0.6rem; width: 100%; font-size: 0.88rem; cursor: pointer; margin-top: 0.5rem; transition: background 0.2s; }
+.btn-add:hover { background: rgba(232,184,75,0.2); }
+
+/* ─── SERVER INFO ADMIN ─── */
+.si-field { margin-bottom: 1rem; }
+.si-field label { display: block; font-size: 0.78rem; color: #666; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.4rem; }
+.si-field input, .si-field textarea { background: #0d0d1a; border: 1px solid #2a2a50; border-radius: 5px; color: #eee; font-size: 0.9rem; font-family: inherit; padding: 0.55rem 0.75rem; width: 100%; }
+.si-field input:focus, .si-field textarea:focus { outline: none; border-color: #e8b84b; }
+.si-field textarea { resize: vertical; }
+.si-hint { font-size: 0.75rem; color: #444; margin-top: 0.3rem; }
 .hof-card {
   background: #0d0d1a;
   border: 1px solid #2a2a50;
@@ -296,8 +321,48 @@ textarea { resize: vertical; line-height: 1.6; }
 .hof-icon { font-size: 1.2rem; flex-shrink: 0; }
 .hof-name { color: #ddd; font-weight: 500; font-size: 0.9rem; flex: 1; }
 .hof-tier { color: #555; font-size: 0.75rem; text-align: right; }
+/* ─── MAP PAGE ─── */
+.map-wrap { position: relative; width: 100%; background: #0a0f0a; border: 1px solid #2a2a50; border-radius: 8px; overflow: hidden; user-select: none; }
+.map-wrap img.map-img { width: 100%; display: block; opacity: 0.85; pointer-events: none; }
+.map-marker { position: absolute; transform: translate(-50%, -100%); cursor: pointer; z-index: 10; }
+.map-marker .marker-pin { width: 28px; height: 28px; border-radius: 50% 50% 50% 0; transform: rotate(-45deg); display: flex; align-items: center; justify-content: center; border: 2px solid rgba(0,0,0,0.4); box-shadow: 0 2px 8px rgba(0,0,0,0.5); transition: transform 0.15s; }
+.map-marker:hover .marker-pin { transform: rotate(-45deg) scale(1.2); }
+.map-marker .marker-pin span { transform: rotate(45deg); font-size: 13px; }
+.map-marker .marker-label { position: absolute; top: 100%; left: 50%; transform: translateX(-50%) translateY(6px); background: rgba(10,10,24,0.92); border: 1px solid #2a2a50; border-radius: 4px; padding: 2px 7px; font-size: 11px; color: #ddd; white-space: nowrap; pointer-events: none; opacity: 0; transition: opacity 0.15s; }
+.map-marker:hover .marker-label { opacity: 1; }
+.map-popup { position: absolute; z-index: 50; background: rgba(12,12,30,0.97); border: 1px solid #2a2a50; border-radius: 8px; padding: 1rem; width: 200px; box-shadow: 0 4px 20px rgba(0,0,0,0.6); backdrop-filter: blur(4px); }
+.map-popup h4 { color: #e8b84b; font-size: 0.88rem; margin-bottom: 0.3rem; }
+.map-popup p { color: #888; font-size: 0.8rem; line-height: 1.5; margin-bottom: 0.6rem; }
+.map-popup .pop-cat { display: inline-block; font-size: 0.72rem; padding: 1px 7px; border-radius: 3px; background: rgba(232,184,75,0.15); color: #e8b84b; margin-bottom: 0.5rem; }
+.map-popup .pop-close { position: absolute; top: 0.5rem; right: 0.6rem; background: none; border: none; color: #555; cursor: pointer; font-size: 1rem; }
+.map-popup .pop-close:hover { color: #e8b84b; }
+.map-legend { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem; }
+.legend-item { display: flex; align-items: center; gap: 0.4rem; font-size: 0.78rem; color: #888; }
+.legend-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+.cat-colors { Military:'#e05a5a', Trader:'#4caf82', SafeZone:'#64a0e6', Loot:'#e8b84b', Dino:'#a855f7', Crash:'#f97316', Town:'#888888', DNA:'#ec4899', General:'#aaaaaa' }
+.map-crosshair { position: absolute; pointer-events: none; z-index: 20; }
+.map-crosshair::before, .map-crosshair::after { content: ''; position: absolute; background: rgba(232,184,75,0.7); }
+.map-crosshair::before { width: 1px; height: 20px; top: -10px; left: 0; }
+.map-crosshair::after { width: 20px; height: 1px; left: -10px; top: 0; }
+
+/* ─── MAP ADMIN ─── */
+.marker-admin-row { display: flex; align-items: center; gap: 0.6rem; background: #0d0d1a; border: 1px solid #2a2a50; border-radius: 6px; padding: 0.6rem 0.85rem; margin-bottom: 0.5rem; flex-wrap: wrap; }
+.marker-admin-row input { background: transparent; border: none; color: #eee; font-size: 0.85rem; min-width: 100px; flex: 1; padding: 0; }
+.marker-admin-row input:focus { outline: none; }
+.marker-admin-row select { background: #0d0d1a; border: 1px solid #2a2a50; border-radius: 4px; color: #aaa; font-size: 0.78rem; padding: 0.2rem 0.4rem; }
+.marker-admin-row .coords { color: #555; font-size: 0.75rem; font-family: monospace; min-width: 90px; }
+.pick-btn { background: rgba(232,184,75,0.1); border: 1px solid #e8b84b; color: #e8b84b; border-radius: 4px; padding: 0.2rem 0.6rem; font-size: 0.75rem; cursor: pointer; white-space: nowrap; }
+.pick-btn:hover { background: rgba(232,184,75,0.2); }
+.pick-btn.active { background: #e8b84b; color: #0d0d1a; }
+
+/* ─── FORM TABS ─── */
+.form-tabs { display: flex; gap: 0; margin-bottom: 1.5rem; background: rgba(12,12,30,0.9); border: 1px solid #2a2a50; border-radius: 8px; overflow: hidden; }
+.form-tab { flex: 1; background: transparent; border: none; color: #666; font-size: 0.9rem; font-family: inherit; padding: 0.9rem 1rem; cursor: pointer; transition: all 0.2s; letter-spacing: 0.03em; font-weight: 500; border-bottom: 3px solid transparent; }
+.form-tab:hover { color: #aaa; background: rgba(255,255,255,0.03); }
+.form-tab.active { color: #e8b84b; border-bottom-color: #e8b84b; background: rgba(232,184,75,0.05); }
+.form-tab-panel { display: none; }
+.form-tab-panel.active { display: block; }
 </style>
-</head>
 <body>
 
 <!-- ─── SIDEBAR OVERLAY ─── -->
@@ -315,6 +380,12 @@ textarea { resize: vertical; line-height: 1.6; }
   <button class="sidebar-btn" onclick="sidebarGo('form')">
     <span class="sb-icon">&#128203;</span>
     <span class="sb-label">Application Form</span>
+    <span class="sb-arrow">&#8250;</span>
+  </button>
+
+  <button class="sidebar-btn" onclick="sidebarGo('map')">
+    <span class="sb-icon">&#127758;</span>
+    <span class="sb-label">Interactive Map</span>
     <span class="sb-arrow">&#8250;</span>
   </button>
 
@@ -367,12 +438,18 @@ textarea { resize: vertical; line-height: 1.6; }
 
   <header>
     <img src="1_FI_BadgeFIXED.png" alt="Forgotten Isle DayZ" class="logo-img">
-    <h1>Forgotten Isle Staff Application</h1>
-    <p>Thank you for your interest in joining the staff team.<br>
-    Please complete all sections as honestly and thoroughly as possible.<br>
-    Short or low-effort applications may not be considered.</p>
+    <h1>Forgotten Isle Applications</h1>
+    <p>Select an application type below and complete all sections honestly.<br>Short or low-effort applications may not be considered.</p>
   </header>
 
+  <!-- Form Tab Switcher -->
+  <div class="form-tabs">
+    <button class="form-tab active" onclick="switchFormTab('staff', this)">&#128737; Staff Application</button>
+    <button class="form-tab" onclick="switchFormTab('medic', this)">&#10133; Medic Application</button>
+  </div>
+
+  <!-- ── STAFF APPLICATION TAB ── -->
+  <div class="form-tab-panel active" id="formtab-staff">
   <form id="appForm" onsubmit="handleSubmit(event)">
 
     <div class="section">
@@ -557,6 +634,158 @@ textarea { resize: vertical; line-height: 1.6; }
     </div>
     <div class="success-msg" id="successMsg">&#10003; &nbsp; Application submitted successfully! Thank you for applying.</div>
   </form>
+  </div><!-- end formtab-staff -->
+
+  <!-- ── MEDIC APPLICATION TAB ── -->
+  <div class="form-tab-panel" id="formtab-medic">
+  <form id="medicForm" onsubmit="handleMedicSubmit(event)">
+
+    <div class="section">
+      <div class="section-header"><h2>&#128100; Personal Information</h2></div>
+      <div class="section-body">
+        <div class="field-grid">
+          <div class="field"><label>Discord Username <span class="required-star">*</span></label><input type="text" name="discord" placeholder="e.g. username#0000" required></div>
+          <div class="field"><label>Age <span class="required-star">*</span></label><input type="number" name="age" placeholder="e.g. 20" min="13" max="99" required></div>
+          <div class="field"><label>Country</label><input type="text" name="country" placeholder="e.g. United Kingdom"></div>
+          <div class="field"><label>Timezone</label><input type="text" name="timezone" placeholder="e.g. GMT+0 / BST"></div>
+          <div class="field span2"><label>How long have you been a member of our community?</label><input type="text" name="community_length" placeholder="e.g. 6 months"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-header"><h2>&#127918; DayZ Experience</h2></div>
+      <div class="section-body">
+        <div class="field-grid">
+          <div class="field"><label>Total Hours in DayZ <span class="required-star">*</span></label><input type="text" name="hours" placeholder="e.g. 1,200 hours" required></div>
+          <div class="field"><label>How long have you been playing DayZ?</label><input type="text" name="play_length" placeholder="e.g. 3 years"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-header"><h2>&#9200; Availability</h2></div>
+      <div class="section-body">
+        <div class="field-grid">
+          <div class="field"><label>Hours per week</label><input type="text" name="hours_week" placeholder="e.g. 10–15 hours"></div>
+          <div class="field"><label>Most active days</label><input type="text" name="active_days" placeholder="e.g. Mon, Wed, Fri, Weekends"></div>
+          <div class="field span2"><label>Usual available times</label><input type="text" name="active_times" placeholder="e.g. Evenings 6pm–11pm GMT"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-header"><h2>&#10133; Medic Suitability</h2></div>
+      <div class="section-body">
+        <div class="field-grid single">
+          <div class="field"><label>Why do you want to be a medic on Forgotten Isle? <span class="required-star">*</span></label><textarea name="why_medic" rows="5" placeholder="Tell us your reasons..." required></textarea></div>
+          <div class="field"><label>Do you have any roleplay experience? If so, describe it.</label><textarea name="rp_experience" rows="4" placeholder="e.g. Other RP servers, DnD, theatre, writing..."></textarea></div>
+          <div class="field"><label>How familiar are you with DayZ medical mechanics? (bandaging, IVs, defibs, blood bags, splints etc.)</label><textarea name="medical_knowledge" rows="4" placeholder="Describe your knowledge of in-game medical systems..."></textarea></div>
+          <div class="field"><label>How do you stay calm and focused under pressure in-game?</label><textarea name="calm_under_pressure" rows="4" placeholder="Your answer..."></textarea></div>
+          <div class="field"><label>Describe your ideal medic loadout and why.</label><textarea name="loadout" rows="4" placeholder="What would you carry and why?"></textarea></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-header"><h2>&#129504; Scenario Questions</h2></div>
+      <div class="section-body">
+        <div class="field-grid single">
+
+          <div class="field">
+            <div class="scenario-box"><span class="scenario-num">SCENARIO 1</span><br>You receive a distress call — a player is unconscious, bleeding heavily and their camp is in a remote location far from your current position. Another player is calling for help nearby. How do you respond?</div>
+            <label>Your Answer <span class="required-star">*</span></label>
+            <textarea name="scenario_1" rows="5" placeholder="Your answer..." required></textarea>
+          </div>
+
+          <div class="field">
+            <div class="scenario-box"><span class="scenario-num">SCENARIO 2</span><br>You arrive to treat a player but they are being uncooperative, refusing treatment and becoming hostile toward you in roleplay. How do you handle this while staying in character?</div>
+            <label>Your Answer <span class="required-star">*</span></label>
+            <textarea name="scenario_2" rows="5" placeholder="Your answer..." required></textarea>
+          </div>
+
+          <div class="field">
+            <div class="scenario-box"><span class="scenario-num">SCENARIO 3</span><br>You are treating a critically injured player when a dinosaur attacks your position. You don't have enough supplies to fully treat the patient before needing to flee. What do you do?</div>
+            <label>Your Answer <span class="required-star">*</span></label>
+            <textarea name="scenario_3" rows="5" placeholder="Your answer..." required></textarea>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-header"><h2>&#129309; Community</h2></div>
+      <div class="section-body">
+        <div class="field-grid single">
+          <div class="field"><label>How would you work alongside the staff team as a medic?</label><textarea name="work_with_staff" rows="4" placeholder="Your answer..."></textarea></div>
+          <div class="field"><label>What do you hope to bring to the Forgotten Isle community as a medic?</label><textarea name="goals" rows="4" placeholder="Your goals..."></textarea></div>
+          <div class="field"><label>Anything else you'd like to add?</label><textarea name="anything_else" rows="3" placeholder="Optional..."></textarea></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-header"><h2>&#9989; Declaration</h2></div>
+      <div class="section-body">
+        <div class="declaration">I understand that as a medic I am expected to remain in character, act professionally, and prioritise the wellbeing of players at all times. I understand that misconduct may result in removal of my medic role.</div>
+        <div class="field-grid">
+          <div class="field"><label>Applicant Name <span class="required-star">*</span></label><input type="text" name="applicant_name" placeholder="Your full name" required></div>
+          <div class="field"><label>Date Submitted</label><input type="date" name="date_submitted" id="medicDateField"></div>
+          <div class="field span2"><label>Signature (Type Your Name) <span class="required-star">*</span></label><input type="text" name="signature" placeholder="Type your name as signature" required></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="submit-row">
+      <button type="submit" class="btn-submit" id="medicSubmitBtn">Submit Medic Application</button>
+    </div>
+    <div class="success-msg" id="medicSuccessMsg">&#10003; &nbsp; Medic application submitted successfully! Thank you for applying.</div>
+
+  </form>
+  </div><!-- end formtab-medic -->
+
+</div>
+</div>
+</div>
+
+
+<!-- ════════════════════════════════════════
+     VIEW — INTERACTIVE MAP
+════════════════════════════════════════ -->
+<div id="view-map" class="view">
+<div style="padding:2rem 1rem; min-height:100vh;">
+<div class="wrapper" style="max-width:960px;">
+
+  <header>
+    <img src="1_FI_BadgeFIXED.png" alt="Forgotten Isle DayZ" class="logo-img">
+    <h1>DeerIsle Map</h1>
+    <p>Click a marker to see details. Use the filters to show or hide categories.</p>
+  </header>
+
+  <!-- Filter bar -->
+  <div style="display:flex; flex-wrap:wrap; gap:0.5rem; margin-bottom:1rem;" id="mapFilterBar">
+    <button class="filter-btn active" onclick="setMapFilter('all', this)" style="font-size:0.8rem; padding:0.35rem 0.85rem;">All</button>
+  </div>
+
+  <!-- Map -->
+  <div class="map-wrap" id="mapWrap">
+    <img class="map-img" src="FORGOTTENISLEMAP.png" alt="DeerIsle Map" id="mapImg">
+    <div id="mapMarkers"></div>
+    <div class="map-popup" id="mapPopup" style="display:none;">
+      <button class="pop-close" onclick="closeMapPopup()">&#10005;</button>
+      <span class="pop-cat" id="popCat"></span>
+      <h4 id="popName"></h4>
+      <p id="popDesc"></p>
+    </div>
+  </div>
+
+  <!-- Legend -->
+  <div class="map-legend" id="mapLegend"></div>
+
+  <div style="text-align:center; padding: 1.5rem 0 2rem;">
+    <button class="btn-print" onclick="showView('form')">&#8592; Back to Application</button>
+  </div>
 
 </div>
 </div>
@@ -623,71 +852,22 @@ textarea { resize: vertical; line-height: 1.6; }
   </header>
 
   <!-- Quick Stats -->
-  <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:1rem; margin-bottom:1.5rem;">
-    <div style="background:rgba(18,18,42,0.92); border:1px solid #2a2a50; border-top:3px solid #e8b84b; border-radius:8px; padding:1.1rem; text-align:center;">
-      <div style="font-size:1.6rem;">&#127758;</div>
-      <div style="color:#e8b84b; font-weight:700; font-size:0.95rem; margin-top:0.4rem;">DeerIsle</div>
-      <div style="color:#666; font-size:0.75rem; text-transform:uppercase; letter-spacing:0.05em;">Map</div>
-    </div>
-    <div style="background:rgba(18,18,42,0.92); border:1px solid #2a2a50; border-top:3px solid #e8b84b; border-radius:8px; padding:1.1rem; text-align:center;">
-      <div style="font-size:1.6rem;">&#128101;</div>
-      <div style="color:#e8b84b; font-weight:700; font-size:0.95rem; margin-top:0.4rem;">50 Slots</div>
-      <div style="color:#666; font-size:0.75rem; text-transform:uppercase; letter-spacing:0.05em;">Max Players</div>
-    </div>
-    <div style="background:rgba(18,18,42,0.92); border:1px solid #2a2a50; border-top:3px solid #e8b84b; border-radius:8px; padding:1.1rem; text-align:center;">
-      <div style="font-size:1.6rem;">&#129399;</div>
-      <div style="color:#e8b84b; font-weight:700; font-size:0.95rem; margin-top:0.4rem;">PvE</div>
-      <div style="color:#666; font-size:0.75rem; text-transform:uppercase; letter-spacing:0.05em;">Game Mode</div>
-    </div>
-    <div style="background:rgba(18,18,42,0.92); border:1px solid #2a2a50; border-top:3px solid #e8b84b; border-radius:8px; padding:1.1rem; text-align:center;">
-      <div style="font-size:1.6rem;">&#128187;</div>
-      <div style="color:#e8b84b; font-weight:700; font-size:0.95rem; margin-top:0.4rem;">PC</div>
-      <div style="color:#666; font-size:0.75rem; text-transform:uppercase; letter-spacing:0.05em;">Platform</div>
-    </div>
+  <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:1rem; margin-bottom:1.5rem;" id="si-stats">
+    <div style="color:#555; text-align:center; padding:2rem; grid-column:span 4;">Loading server info...</div>
   </div>
 
   <!-- Connection Info -->
   <div class="section">
     <div class="section-header"><h2>&#128268; Connection Info</h2></div>
-    <div class="section-body">
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
-        <div>
-          <div style="font-size:0.75rem; color:#666; text-transform:uppercase; letter-spacing:0.05em; margin-bottom:0.4rem;">Server IP</div>
-          <div style="background:#0d0d1a; border:1px solid #2a2a50; border-radius:5px; padding:0.6rem 0.9rem; font-family:monospace; color:#e8b84b; font-size:0.95rem; display:flex; justify-content:space-between; align-items:center;">
-            <span>194.50.234.85:2680</span>
-            <button onclick="copyText('194.50.234.85:2680', this)" style="background:transparent;border:none;color:#555;cursor:pointer;font-size:0.8rem;padding:0 0.25rem;">&#128203;</button>
-          </div>
-        </div>
-        <div>
-          <div style="font-size:0.75rem; color:#666; text-transform:uppercase; letter-spacing:0.05em; margin-bottom:0.4rem;">Query Port</div>
-          <div style="background:#0d0d1a; border:1px solid #2a2a50; border-radius:5px; padding:0.6rem 0.9rem; font-family:monospace; color:#aaa; font-size:0.95rem;">
-            194.50.234.85:2681
-          </div>
-        </div>
-        <div style="grid-column:span 2;">
-          <div style="font-size:0.75rem; color:#666; text-transform:uppercase; letter-spacing:0.05em; margin-bottom:0.4rem;">How to Connect</div>
-          <div style="background:#0d0d1a; border:1px solid #2a2a50; border-left:3px solid #e8b84b; border-radius:5px; padding:0.75rem 1rem; font-size:0.88rem; color:#aaa; line-height:1.7;">
-            1. Open DayZ → click <strong style="color:#ddd;">Servers</strong><br>
-            2. Click <strong style="color:#ddd;">Community</strong> tab<br>
-            3. Search <strong style="color:#e8b84b;">Forgotten Isle</strong> or paste the IP into the search bar<br>
-            4. Click <strong style="color:#ddd;">Connect</strong> — see you on the island! 🏝️
-          </div>
-        </div>
-      </div>
-    </div>
+    <div class="section-body" id="si-connection"><div style="color:#555; font-size:0.88rem;">Loading...</div></div>
   </div>
 
   <!-- Mods -->
   <div class="section">
     <div class="section-header"><h2>&#129520; Active Mods</h2></div>
     <div class="section-body">
-      <div style="display:grid; grid-template-columns:repeat(auto-fill,minmax(180px,1fr)); gap:0.75rem;">
-        <div style="background:#0d0d1a; border:1px solid #2a2a50; border-radius:6px; padding:0.65rem 0.9rem; font-size:0.88rem; color:#ddd; display:flex; align-items:center; gap:0.5rem;"><span style="color:#e8b84b;">&#9654;</span> DeerIsle</div>
-        <div style="background:#0d0d1a; border:1px solid #2a2a50; border-radius:6px; padding:0.65rem 0.9rem; font-size:0.88rem; color:#ddd; display:flex; align-items:center; gap:0.5rem;"><span style="color:#e8b84b;">&#9654;</span> AI</div>
-        <div style="background:#0d0d1a; border:1px solid #2a2a50; border-radius:6px; padding:0.65rem 0.9rem; font-size:0.88rem; color:#ddd; display:flex; align-items:center; gap:0.5rem;"><span style="color:#e8b84b;">&#9654;</span> Dinosaurs (DINO)</div>
-        <div style="background:#0d0d1a; border:1px solid #2a2a50; border-radius:6px; padding:0.65rem 0.9rem; font-size:0.88rem; color:#ddd; display:flex; align-items:center; gap:0.5rem;"><span style="color:#e8b84b;">&#9654;</span> DNA Keycards</div>
-        <div style="background:#0d0d1a; border:1px solid #2a2a50; border-radius:6px; padding:0.65rem 0.9rem; font-size:0.88rem; color:#ddd; display:flex; align-items:center; gap:0.5rem;"><span style="color:#e8b84b;">&#9654;</span> Music</div>
-        <div style="background:#0d0d1a; border:1px solid #2a2a50; border-radius:6px; padding:0.65rem 0.9rem; font-size:0.88rem; color:#ddd; display:flex; align-items:center; gap:0.5rem;"><span style="color:#e8b84b;">&#9654;</span> 250K Starting Load</div>
+      <div style="display:grid; grid-template-columns:repeat(auto-fill,minmax(180px,1fr)); gap:0.75rem;" id="si-mods">
+        <div style="color:#555; font-size:0.88rem;">Loading...</div>
       </div>
     </div>
   </div>
@@ -696,45 +876,11 @@ textarea { resize: vertical; line-height: 1.6; }
   <div class="section">
     <div class="section-header"><h2>&#128220; Server Rules</h2></div>
     <div class="section-body">
-      <div style="display:flex; flex-direction:column; gap:0.6rem;">
-        <div style="background:#0d0d1a; border:1px solid #2a2a50; border-left:3px solid #e8b84b; border-radius:5px; padding:0.75rem 1rem; font-size:0.88rem; color:#ccc; display:flex; gap:0.75rem; align-items:flex-start;">
-          <span style="color:#e8b84b; font-weight:700; min-width:22px;">1.</span>
-          <span>No player killing (PvE server — KOS is strictly prohibited)</span>
-        </div>
-        <div style="background:#0d0d1a; border:1px solid #2a2a50; border-left:3px solid #e8b84b; border-radius:5px; padding:0.75rem 1rem; font-size:0.88rem; color:#ccc; display:flex; gap:0.75rem; align-items:flex-start;">
-          <span style="color:#e8b84b; font-weight:700; min-width:22px;">2.</span>
-          <span>Respect all players and staff at all times — zero tolerance for toxicity</span>
-        </div>
-        <div style="background:#0d0d1a; border:1px solid #2a2a50; border-left:3px solid #e8b84b; border-radius:5px; padding:0.75rem 1rem; font-size:0.88rem; color:#ccc; display:flex; gap:0.75rem; align-items:flex-start;">
-          <span style="color:#e8b84b; font-weight:700; min-width:22px;">3.</span>
-          <span>No griefing, trolling, or intentionally disrupting other players' gameplay</span>
-        </div>
-        <div style="background:#0d0d1a; border:1px solid #2a2a50; border-left:3px solid #e8b84b; border-radius:5px; padding:0.75rem 1rem; font-size:0.88rem; color:#ccc; display:flex; gap:0.75rem; align-items:flex-start;">
-          <span style="color:#e8b84b; font-weight:700; min-width:22px;">4.</span>
-          <span>No hacking, cheating, or exploiting game bugs for personal gain</span>
-        </div>
-        <div style="background:#0d0d1a; border:1px solid #2a2a50; border-left:3px solid #e8b84b; border-radius:5px; padding:0.75rem 1rem; font-size:0.88rem; color:#ccc; display:flex; gap:0.75rem; align-items:flex-start;">
-          <span style="color:#e8b84b; font-weight:700; min-width:22px;">5.</span>
-          <span>No blocking roads, military spawns, or loot areas with base structures</span>
-        </div>
-        <div style="background:#0d0d1a; border:1px solid #2a2a50; border-left:3px solid #e8b84b; border-radius:5px; padding:0.75rem 1rem; font-size:0.88rem; color:#ccc; display:flex; gap:0.75rem; align-items:flex-start;">
-          <span style="color:#e8b84b; font-weight:700; min-width:22px;">6.</span>
-          <span>Base raiding is not permitted on this server</span>
-        </div>
-        <div style="background:#0d0d1a; border:1px solid #2a2a50; border-left:3px solid #e8b84b; border-radius:5px; padding:0.75rem 1rem; font-size:0.88rem; color:#ccc; display:flex; gap:0.75rem; align-items:flex-start;">
-          <span style="color:#e8b84b; font-weight:700; min-width:22px;">7.</span>
-          <span>Follow all staff instructions — staff decisions are final</span>
-        </div>
-        <div style="background:#0d0d1a; border:1px solid #2a2a50; border-left:3px solid #e8b84b; border-radius:5px; padding:0.75rem 1rem; font-size:0.88rem; color:#ccc; display:flex; gap:0.75rem; align-items:flex-start;">
-          <span style="color:#e8b84b; font-weight:700; min-width:22px;">8.</span>
-          <span>Any disputes must be raised via Discord — do not confront players in game</span>
-        </div>
-        <div style="margin-top:0.5rem; font-size:0.8rem; color:#555; font-style:italic; text-align:center;">Breaking any rules may result in a kick, ban, or wipe depending on severity.</div>
+      <div style="display:flex; flex-direction:column; gap:0.6rem;" id="si-rules">
+        <div style="color:#555; font-size:0.88rem;">Loading...</div>
       </div>
     </div>
-  </div>
-
-  <div style="text-align:center; padding-bottom:2rem;">
+  </div>  <div style="text-align:center; padding-bottom:2rem;">
     <button class="btn-print" onclick="showView('form')">&#8592; Back to Application</button>
   </div>
 
@@ -757,45 +903,15 @@ textarea { resize: vertical; line-height: 1.6; }
   </header>
 
   <!-- Top 3 Podium -->
-  <div style="display:flex; justify-content:center; align-items:flex-end; gap:1rem; margin-bottom:2rem; flex-wrap:wrap;">
-
-    <!-- 2nd -->
-    <div style="background:rgba(18,18,42,0.92); border:1px solid #2a2a50; border-radius:10px; padding:1.5rem 1.25rem; text-align:center; width:180px; order:1;">
-      <div style="font-size:2rem;">&#129352;</div>
-      <div style="color:#C0C0C0; font-weight:700; font-size:1.05rem; margin-top:0.5rem;">YourName</div>
-      <div style="color:#666; font-size:0.8rem; margin-top:0.25rem;">Silver Supporter</div>
-    </div>
-
-    <!-- 1st -->
-    <div style="background:rgba(18,18,42,0.92); border:2px solid #e8b84b; border-radius:10px; padding:1.75rem 1.25rem; text-align:center; width:200px; order:2; box-shadow:0 0 24px rgba(232,184,75,0.2);">
-      <div style="font-size:2.5rem;">&#127947;</div>
-      <div style="color:#e8b84b; font-weight:700; font-size:1.2rem; margin-top:0.5rem;">YourName</div>
-      <div style="color:#888; font-size:0.8rem; margin-top:0.25rem;">Gold Supporter</div>
-      <div style="margin-top:0.75rem; background:rgba(232,184,75,0.1); border-radius:4px; padding:0.25rem 0.5rem; font-size:0.75rem; color:#e8b84b;">⭐ Top Donator</div>
-    </div>
-
-    <!-- 3rd -->
-    <div style="background:rgba(18,18,42,0.92); border:1px solid #2a2a50; border-radius:10px; padding:1.25rem; text-align:center; width:180px; order:3;">
-      <div style="font-size:1.75rem;">&#129353;</div>
-      <div style="color:#CD7F32; font-weight:700; font-size:1.05rem; margin-top:0.5rem;">YourName</div>
-      <div style="color:#666; font-size:0.8rem; margin-top:0.25rem;">Bronze Supporter</div>
-    </div>
-
+  <div style="display:flex; justify-content:center; align-items:flex-end; gap:1rem; margin-bottom:2rem; flex-wrap:wrap;" id="hofPodium">
+    <div style="color:#555; text-align:center; padding:2rem;">Loading donors...</div>
   </div>
 
   <!-- All Donators List -->
   <div class="section">
     <div class="section-header"><h2>&#127942; All Supporters</h2></div>
     <div class="section-body">
-      <div style="display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); gap:0.75rem;" id="hofList">
-
-        <!-- ─── ADD / REMOVE DONORS HERE ─── -->
-        <div class="hof-card"><span class="hof-icon">&#128142;</span><span class="hof-name">DonorName</span><span class="hof-tier">Supporter</span></div>
-        <div class="hof-card"><span class="hof-icon">&#128142;</span><span class="hof-name">DonorName</span><span class="hof-tier">Supporter</span></div>
-        <div class="hof-card"><span class="hof-icon">&#128142;</span><span class="hof-name">DonorName</span><span class="hof-tier">Supporter</span></div>
-        <!-- ─── END OF DONOR LIST ─── -->
-
-      </div>
+      <div style="display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); gap:0.75rem;" id="hofList"></div>
       <div style="margin-top:1.25rem; text-align:center; font-size:0.8rem; color:#444;">
         Want to support the server? Ask in our Discord to find out how to donate.
       </div>
@@ -844,42 +960,121 @@ textarea { resize: vertical; line-height: 1.6; }
   </div>
 
   <div class="admin-body">
-    <div class="stats-row">
-      <div class="stat-card"><div class="stat-num" id="stat-total">0</div><div class="stat-label">Total Applications</div></div>
-      <div class="stat-card"><div class="stat-num" id="stat-pending" style="color:#e8b84b">0</div><div class="stat-label">Pending Review</div></div>
-      <div class="stat-card"><div class="stat-num" id="stat-accepted" style="color:#4caf82">0</div><div class="stat-label">Accepted</div></div>
-      <div class="stat-card"><div class="stat-num" id="stat-rejected" style="color:#e05a5a">0</div><div class="stat-label">Rejected</div></div>
+
+    <!-- TABS -->
+    <div class="admin-tabs">
+      <button class="admin-tab active" onclick="switchTab('applications', this)">&#128203; Staff Applications</button>
+      <button class="admin-tab" onclick="switchTab('medics', this)">&#10133; Medic Applications</button>
+      <button class="admin-tab" onclick="switchTab('donors', this)">&#127942; Hall of Fame</button>
+      <button class="admin-tab" onclick="switchTab('serverinfo', this)">&#128268; Server Info</button>
+      <button class="admin-tab" onclick="switchTab('mapmarkers', this)">&#127758; Map Markers</button>
     </div>
 
-    <div class="admin-controls">
-      <button class="filter-btn active" onclick="setFilter('all', this)">All</button>
-      <button class="filter-btn" onclick="setFilter('pending', this)">Pending</button>
-      <button class="filter-btn" onclick="setFilter('review', this)">In Review</button>
-      <button class="filter-btn" onclick="setFilter('accepted', this)">Accepted</button>
-      <button class="filter-btn" onclick="setFilter('rejected', this)">Rejected</button>
-      <input class="search-input" id="searchInput" type="text" placeholder="&#128269; Search by name or Discord..." oninput="renderTable()">
-    </div>
-
-    <div id="tableWrap">
-      <table class="app-table" id="appTable">
-        <thead>
-          <tr>
-            <th>Applicant</th>
-            <th>Age</th>
-            <th>Hours</th>
-            <th>Availability</th>
-            <th>Submitted</th>
-            <th>Status</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody id="appTableBody"></tbody>
-      </table>
-      <div class="empty-state" id="emptyState" style="display:none;">
-        <div class="empty-icon">&#128203;</div>
-        <p>No applications yet. Share the form link to get started.</p>
+    <!-- TAB: APPLICATIONS -->
+    <div class="admin-tab-panel active" id="tab-applications">
+      <div class="stats-row">
+        <div class="stat-card"><div class="stat-num" id="stat-total">0</div><div class="stat-label">Total Applications</div></div>
+        <div class="stat-card"><div class="stat-num" id="stat-pending" style="color:#e8b84b">0</div><div class="stat-label">Pending Review</div></div>
+        <div class="stat-card"><div class="stat-num" id="stat-accepted" style="color:#4caf82">0</div><div class="stat-label">Accepted</div></div>
+        <div class="stat-card"><div class="stat-num" id="stat-rejected" style="color:#e05a5a">0</div><div class="stat-label">Rejected</div></div>
+      </div>
+      <div class="admin-controls">
+        <button class="filter-btn active" onclick="setFilter('all', this)">All</button>
+        <button class="filter-btn" onclick="setFilter('pending', this)">Pending</button>
+        <button class="filter-btn" onclick="setFilter('review', this)">In Review</button>
+        <button class="filter-btn" onclick="setFilter('accepted', this)">Accepted</button>
+        <button class="filter-btn" onclick="setFilter('rejected', this)">Rejected</button>
+        <input class="search-input" id="searchInput" type="text" placeholder="&#128269; Search by name or Discord..." oninput="renderTable()">
+      </div>
+      <div id="tableWrap">
+        <table class="app-table" id="appTable">
+          <thead><tr><th>Applicant</th><th>Age</th><th>Hours</th><th>Availability</th><th>Submitted</th><th>Status</th><th></th></tr></thead>
+          <tbody id="appTableBody"></tbody>
+        </table>
+        <div class="empty-state" id="emptyState" style="display:none;">
+          <div class="empty-icon">&#128203;</div>
+          <p>No applications yet. Share the form link to get started.</p>
+        </div>
       </div>
     </div>
+
+    <!-- TAB: MEDIC APPLICATIONS -->
+    <div class="admin-tab-panel" id="tab-medics">
+      <div class="stats-row">
+        <div class="stat-card"><div class="stat-num" id="mstat-total">0</div><div class="stat-label">Total Medic Apps</div></div>
+        <div class="stat-card"><div class="stat-num" id="mstat-pending" style="color:#e8b84b">0</div><div class="stat-label">Pending</div></div>
+        <div class="stat-card"><div class="stat-num" id="mstat-accepted" style="color:#4caf82">0</div><div class="stat-label">Accepted</div></div>
+        <div class="stat-card"><div class="stat-num" id="mstat-rejected" style="color:#e05a5a">0</div><div class="stat-label">Rejected</div></div>
+      </div>
+      <div class="admin-controls">
+        <button class="filter-btn active" onclick="setMedicFilter('all', this)">All</button>
+        <button class="filter-btn" onclick="setMedicFilter('pending', this)">Pending</button>
+        <button class="filter-btn" onclick="setMedicFilter('review', this)">In Review</button>
+        <button class="filter-btn" onclick="setMedicFilter('accepted', this)">Accepted</button>
+        <button class="filter-btn" onclick="setMedicFilter('rejected', this)">Rejected</button>
+        <input class="search-input" id="medicSearchInput" type="text" placeholder="&#128269; Search by name or Discord..." oninput="renderMedicTable()">
+      </div>
+      <div id="medicTableWrap">
+        <table class="app-table" id="medicTable">
+          <thead><tr><th>Applicant</th><th>Age</th><th>Hours</th><th>Availability</th><th>Submitted</th><th>Status</th><th></th></tr></thead>
+          <tbody id="medicTableBody"></tbody>
+        </table>
+        <div class="empty-state" id="medicEmptyState" style="display:none;">
+          <div class="empty-icon">&#10133;</div>
+          <p>No medic applications yet.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB: HALL OF FAME -->
+    <div class="admin-tab-panel" id="tab-donors">
+      <div style="max-width:640px;">
+        <p style="color:#666; font-size:0.88rem; margin-bottom:1.25rem;">Add, remove or reorder donors. The first entry becomes Gold (1st place), second becomes Silver, third becomes Bronze on the public page.</p>
+        <div id="donorRows"></div>
+        <button class="btn-add" onclick="addDonorRow()">+ Add Donor</button>
+        <div style="margin-top:1.25rem; display:flex; gap:0.75rem; align-items:center;">
+          <button class="btn-save" onclick="saveDonors()">Save Hall of Fame</button>
+          <span class="saved-toast" id="donorToast">&#10003; Saved</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB: SERVER INFO -->
+    <div class="admin-tab-panel" id="tab-serverinfo">
+      <div style="max-width:640px;">
+        <p style="color:#666; font-size:0.88rem; margin-bottom:1.25rem;">Edit your server details. Changes save to the database and appear on the public Server Information page immediately.</p>
+        <div class="si-field"><label>Server Name</label><input type="text" id="si_server_name" placeholder="e.g. Forgotten Isle PvE"></div>
+        <div class="si-field"><label>Server IP : Port</label><input type="text" id="si_server_ip" placeholder="e.g. 194.50.234.85:2680"></div>
+        <div class="si-field"><label>Query Port</label><input type="text" id="si_query_port" placeholder="e.g. 194.50.234.85:2681"></div>
+        <div class="si-field"><label>Max Players</label><input type="text" id="si_max_players" placeholder="e.g. 50"></div>
+        <div class="si-field"><label>Map</label><input type="text" id="si_map" placeholder="e.g. DeerIsle"></div>
+        <div class="si-field"><label>Active Mods <span style="color:#444;">(comma separated)</span></label><input type="text" id="si_mods" placeholder="e.g. DeerIsle, AI, Dinosaurs"></div>
+        <div class="si-field"><label>Discord Link</label><input type="text" id="si_discord" placeholder="https://discord.gg/..."></div>
+        <div class="si-field">
+          <label>Server Rules <span style="color:#444;">(one rule per line)</span></label>
+          <textarea id="si_rules" rows="10" placeholder="No player killing&#10;Respect all players..."></textarea>
+          <div class="si-hint">Each line = one rule on the public page</div>
+        </div>
+        <div style="display:flex; gap:0.75rem; align-items:center; margin-top:0.5rem;">
+          <button class="btn-save" onclick="saveServerInfo()">Save Server Info</button>
+          <span class="saved-toast" id="siToast">&#10003; Saved</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB: MAP MARKERS -->
+    <div class="admin-tab-panel" id="tab-mapmarkers">
+      <div style="max-width:760px;">
+        <p style="color:#666; font-size:0.88rem; margin-bottom:1rem;">Add markers to the public map. Set the X/Y coordinates as a percentage of the map (0–100). Tip: hover over the map on the public page to help estimate positions.</p>
+        <div id="markerAdminRows"></div>
+        <button class="btn-add" onclick="addMarkerAdminRow()">+ Add Marker</button>
+        <div style="margin-top:1.25rem; display:flex; gap:0.75rem; align-items:center;">
+          <button class="btn-save" onclick="saveMarkers()">Save Markers</button>
+          <span class="saved-toast" id="markerToast">&#10003; Saved</span>
+        </div>
+      </div>
+    </div>
+
   </div>
 </div>
 
@@ -981,15 +1176,26 @@ let currentFilter = 'all';
 let currentAppId  = null;
 let cachedApps    = [];
 
-// ─── VIEW SWITCHING ───
 function showView(name) {
   document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
   document.getElementById('view-' + name).classList.add('active');
-  if (name === 'admin') renderDashboard();
+  if (name === 'admin')      renderDashboard();
+  if (name === 'serverinfo') renderServerInfoPage();
+  if (name === 'hof')        renderHofPage();
+  if (name === 'map')        renderMapPage();
+}
+
+// ─── FORM TAB SWITCHING ───
+function switchFormTab(name, el) {
+  document.querySelectorAll('.form-tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.form-tab-panel').forEach(p => p.classList.remove('active'));
+  el.classList.add('active');
+  document.getElementById('formtab-' + name).classList.add('active');
 }
 
 // ─── FORM SUBMIT → SUPABASE ───
 document.getElementById('dateField').valueAsDate = new Date();
+document.getElementById('medicDateField').valueAsDate = new Date();
 
 async function handleSubmit(e) {
   e.preventDefault();
@@ -1028,7 +1234,595 @@ async function handleSubmit(e) {
   }
 }
 
-// ─── STATUS CHECKER ───
+
+// ─── MAP ───
+const CAT_COLORS = {
+  Military:'#e05a5a', Trader:'#4caf82', 'Safe Zone':'#64a0e6',
+  Loot:'#e8b84b', Dino:'#a855f7', Crash:'#f97316',
+  Town:'#888888', DNA:'#ec4899', General:'#aaaaaa'
+};
+const CAT_ICONS = {
+  Military:'\u2694', Trader:'\ud83d\udcb0', 'Safe Zone':'\ud83d\udee1', Loot:'\ud83d\udce6',
+  Dino:'\ud83e\udd95', Crash:'\ud83d\ude81', Town:'\ud83c\udfd8', DNA:'\ud83d\udd11', General:'\ud83d\udccd'
+};
+
+let allMarkers = [];
+let activeMapFilter = 'all';
+
+async function sbGetMarkers() {
+  const res = await fetch(SB_URL + '/rest/v1/map_markers?order=created_at.asc&select=*', { headers: HEADERS });
+  if (!res.ok) throw new Error(await res.text());
+  return res.json();
+}
+async function sbDeleteMarkers() {
+  await fetch(SB_URL + '/rest/v1/map_markers?id=neq.00000000-0000-0000-0000-000000000000', { method:'DELETE', headers: HEADERS });
+}
+async function sbInsertMarkers(markers) {
+  if (!markers.length) return;
+  const res = await fetch(SB_URL + '/rest/v1/map_markers', {
+    method:'POST', headers:{ ...HEADERS, 'Prefer':'return=minimal' },
+    body: JSON.stringify(markers)
+  });
+  if (!res.ok) throw new Error(await res.text());
+}
+
+async function renderMapPage() {
+  try { allMarkers = await sbGetMarkers(); } catch(e) { allMarkers = []; }
+  buildMapFilters();
+  renderMapMarkers();
+  renderMapLegend();
+  const wrap = document.getElementById('mapWrap');
+  if (wrap) {
+    wrap.addEventListener('mousemove', e => {
+      const r = wrap.getBoundingClientRect();
+      wrap.title = 'X: ' + ((e.clientX-r.left)/r.width*100).toFixed(1) + '% Y: ' + ((e.clientY-r.top)/r.height*100).toFixed(1) + '%';
+    });
+  }
+}
+
+function buildMapFilters() {
+  const bar = document.getElementById('mapFilterBar');
+  if (!bar) return;
+  const cats = [...new Set(allMarkers.map(m => m.category))].filter(Boolean);
+  bar.innerHTML = '<button class="filter-btn ' + (activeMapFilter==='all'?'active':'') + '" onclick="setMapFilter(\'all\',this)" style="font-size:0.8rem;padding:0.35rem 0.85rem;">All</button>';
+  cats.forEach(c => {
+    const color = CAT_COLORS[c] || '#aaa';
+    bar.innerHTML += '<button class="filter-btn ' + (activeMapFilter===c?'active':'') + '" onclick="setMapFilter(\'' + c + '\',this)" style="font-size:0.8rem;padding:0.35rem 0.85rem;"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:' + color + ';margin-right:5px;"></span>' + esc(c) + '</button>';
+  });
+}
+
+function setMapFilter(cat, el) {
+  activeMapFilter = cat;
+  document.querySelectorAll('#mapFilterBar .filter-btn').forEach(b => b.classList.remove('active'));
+  el.classList.add('active');
+  renderMapMarkers();
+}
+
+function renderMapMarkers() {
+  const container = document.getElementById('mapMarkers');
+  if (!container) return;
+  closeMapPopup();
+  const filtered = activeMapFilter === 'all' ? allMarkers : allMarkers.filter(m => m.category === activeMapFilter);
+  container.innerHTML = filtered.map(m => {
+    const color = CAT_COLORS[m.category] || '#aaa';
+    const icon  = CAT_ICONS[m.category]  || '&#128205;';
+    return '<div class="map-marker" style="left:' + m.x_percent + '%;top:' + m.y_percent + '%;" onclick="openMapPopup(event,\'' + m.id + '\')">' +
+      '<div class="marker-pin" style="background:' + color + ';">' +
+      '<span>' + icon + '</span></div>' +
+      '<div class="marker-label">' + esc(m.name) + '</div></div>';
+  }).join('');
+}
+
+function renderMapLegend() {
+  const legend = document.getElementById('mapLegend');
+  if (!legend) return;
+  const cats = [...new Set(allMarkers.map(m => m.category))].filter(Boolean);
+  legend.innerHTML = cats.map(c => '<div class="legend-item"><div class="legend-dot" style="background:' + (CAT_COLORS[c]||'#aaa') + ';"></div>' + esc(c) + '</div>').join('');
+}
+
+function openMapPopup(e, id) {
+  e.stopPropagation();
+  const m = allMarkers.find(x => x.id === id);
+  if (!m) return;
+  const popup = document.getElementById('mapPopup');
+  const wrap  = document.getElementById('mapWrap');
+  const wRect = wrap.getBoundingClientRect();
+  const mRect = e.currentTarget.getBoundingClientRect();
+  document.getElementById('popCat').textContent  = m.category || 'General';
+  document.getElementById('popName').textContent = m.name || '';
+  document.getElementById('popDesc').textContent = m.description || 'No description provided.';
+  document.getElementById('popCat').style.background = (CAT_COLORS[m.category] || '#555') + '33';
+  document.getElementById('popCat').style.color = CAT_COLORS[m.category] || '#aaa';
+  let left = (mRect.left - wRect.left) / wRect.width * 100;
+  let top  = (mRect.top  - wRect.top)  / wRect.height * 100;
+  if (left > 60) left = Math.max(0, left - 32);
+  popup.style.left    = left + '%';
+  popup.style.top     = Math.max(2, top - 5) + '%';
+  popup.style.display = 'block';
+}
+
+function closeMapPopup() {
+  const p = document.getElementById('mapPopup');
+  if (p) p.style.display = 'none';
+}
+
+document.addEventListener('click', e => {
+  const popup = document.getElementById('mapPopup');
+  if (popup && !popup.contains(e.target) && !e.target.closest('.map-marker')) closeMapPopup();
+});
+
+function addMarkerAdminRow(name='', category='General', description='', x=50, y=50) {
+  const div = document.createElement('div');
+  div.className = 'marker-admin-row';
+  const catOpts = Object.keys(CAT_COLORS).map(c => '<option value="' + c + '" ' + (c===category?'selected':'') + '>' + c + '</option>').join('');
+  div.innerHTML = '<input type="text" placeholder="Marker name..." value="' + esc(name) + '" style="min-width:120px;">' +
+    '<select>' + catOpts + '</select>' +
+    '<input type="text" placeholder="Description (optional)..." value="' + esc(description) + '" style="min-width:130px;">' +
+    '<span style="color:#555;font-size:0.75rem;font-family:monospace;white-space:nowrap;">X:<input type="number" value="' + x + '" min="0" max="100" step="0.1" style="width:48px;background:transparent;border:none;color:#aaa;font-family:monospace;font-size:0.75rem;padding:0 2px;"> Y:<input type="number" value="' + y + '" min="0" max="100" step="0.1" style="width:48px;background:transparent;border:none;color:#aaa;font-family:monospace;font-size:0.75rem;padding:0 2px;"></span>' +
+    '<button class="btn-danger-sm" onclick="this.closest(\'.marker-admin-row\').remove()">&#10005;</button>';
+  document.getElementById('markerAdminRows').appendChild(div);
+}
+
+async function loadMarkerAdmin() {
+  const rows = document.getElementById('markerAdminRows');
+  rows.innerHTML = '<div style="color:#555;font-size:0.88rem;padding:0.5rem;">Loading...</div>';
+  try {
+    const markers = await sbGetMarkers();
+    rows.innerHTML = '';
+    markers.forEach(m => addMarkerAdminRow(m.name, m.category, m.description, m.x_percent, m.y_percent));
+    if (!markers.length) addMarkerAdminRow();
+  } catch(e) { rows.innerHTML = '<div style="color:#e05a5a;font-size:0.88rem;">' + esc(e.message) + '</div>'; }
+}
+
+async function saveMarkers() {
+  const btn = document.querySelector('#tab-mapmarkers .btn-save');
+  btn.textContent = 'Saving...'; btn.disabled = true;
+  try {
+    const rows = document.querySelectorAll('#markerAdminRows .marker-admin-row');
+    const markers = [];
+    rows.forEach(row => {
+      const texts = row.querySelectorAll('input[type="text"]');
+      const nums  = row.querySelectorAll('input[type="number"]');
+      const name  = texts[0].value.trim();
+      const desc  = texts[1].value.trim();
+      const cat   = row.querySelector('select').value;
+      const x     = parseFloat(nums[0].value) || 50;
+      const y     = parseFloat(nums[1].value) || 50;
+      if (name) markers.push({ name, category: cat, description: desc, x_percent: x, y_percent: y });
+    });
+    await sbDeleteMarkers();
+    await sbInsertMarkers(markers);
+    const toast = document.getElementById('markerToast');
+    toast.style.display = 'inline';
+    setTimeout(() => toast.style.display = 'none', 2000);
+  } catch(e) { alert('Save failed: ' + e.message); }
+  btn.textContent = 'Save Markers'; btn.disabled = false;
+}
+
+// ─── TAB SWITCHING ───
+function switchTab(name, el) {
+  document.querySelectorAll('.admin-tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.admin-tab-panel').forEach(p => p.classList.remove('active'));
+  el.classList.add('active');
+  document.getElementById('tab-' + name).classList.add('active');
+  if (name === 'donors') loadDonorAdmin();
+  if (name === 'serverinfo') loadServerInfoAdmin();
+  if (name === 'mapmarkers') loadMarkerAdmin();
+  if (name === 'medics')     loadMedicAdmin();
+}
+
+// ─── MEDIC SUBMIT ───
+async function handleMedicSubmit(e) {
+  e.preventDefault();
+  const btn = document.getElementById('medicSubmitBtn');
+  btn.disabled = true;
+  btn.textContent = 'Sending\u2026';
+  const fd = new FormData(e.target);
+  const data = {};
+  fd.forEach((v, k) => data[k] = v);
+  data.status      = 'pending';
+  data.admin_notes = '';
+  try {
+    const res = await fetch(SB_URL + '/rest/v1/medic_applications', {
+      method: 'POST', headers: { ...HEADERS, 'Prefer': 'return=minimal' },
+      body: JSON.stringify(data)
+    });
+    if (!res.ok) throw new Error(await res.text());
+    const msg = document.getElementById('medicSuccessMsg');
+    msg.style.display = 'block';
+    btn.textContent = 'Submitted \u2713';
+    window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+    setTimeout(() => {
+      e.target.reset();
+      document.getElementById('medicDateField').valueAsDate = new Date();
+      msg.style.display = 'none';
+      btn.textContent = 'Submit Medic Application';
+      btn.disabled = false;
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, 4000);
+  } catch(err) {
+    btn.disabled = false;
+    btn.textContent = 'Submit Medic Application';
+    alert('Submission failed \u2014 please check your connection and try again.\n\n' + err.message);
+  }
+}
+
+// ─── MEDIC ADMIN ───
+let cachedMedics = [];
+let currentMedicFilter = 'all';
+let currentMedicId = null;
+
+async function loadMedicAdmin() {
+  if (!guardAdmin()) return;
+  document.getElementById('medicTableBody').innerHTML =
+    '<tr><td colspan="7" style="text-align:center;padding:2rem;color:#555;">Loading\u2026</td></tr>';
+  document.getElementById('medicTable').style.display = 'table';
+  document.getElementById('medicEmptyState').style.display = 'none';
+  try {
+    const res = await fetch(SB_URL + '/rest/v1/medic_applications?order=submitted_at.desc&select=*', { headers: HEADERS });
+    if (!res.ok) throw new Error(await res.text());
+    cachedMedics = await res.json();
+  } catch(err) {
+    document.getElementById('medicTableBody').innerHTML =
+      '<tr><td colspan="7" style="text-align:center;padding:2rem;color:#e05a5a;">Failed to load: ' + esc(err.message) + '</td></tr>';
+    return;
+  }
+  document.getElementById('mstat-total').textContent    = cachedMedics.length;
+  document.getElementById('mstat-pending').textContent  = cachedMedics.filter(a => a.status === 'pending').length;
+  document.getElementById('mstat-accepted').textContent = cachedMedics.filter(a => a.status === 'accepted').length;
+  document.getElementById('mstat-rejected').textContent = cachedMedics.filter(a => a.status === 'rejected').length;
+  renderMedicTable();
+}
+
+function setMedicFilter(f, el) {
+  currentMedicFilter = f;
+  document.querySelectorAll('#tab-medics .filter-btn').forEach(b => b.classList.remove('active'));
+  el.classList.add('active');
+  renderMedicTable();
+}
+
+function renderMedicTable() {
+  const q      = (document.getElementById('medicSearchInput').value || '').toLowerCase();
+  const tbody  = document.getElementById('medicTableBody');
+  const filtered = cachedMedics.filter(a => {
+    const matchFilter = currentMedicFilter === 'all' || a.status === currentMedicFilter;
+    const matchSearch = !q || (a.applicant_name||'').toLowerCase().includes(q) || (a.discord||'').toLowerCase().includes(q);
+    return matchFilter && matchSearch;
+  });
+  document.getElementById('medicEmptyState').style.display  = filtered.length === 0 ? 'block' : 'none';
+  document.getElementById('medicTable').style.display       = filtered.length === 0 ? 'none'  : 'table';
+  tbody.innerHTML = filtered.map(a => {
+    const date = a.submitted_at ? new Date(a.submitted_at).toLocaleDateString('en-GB', { day:'2-digit', month:'short', year:'numeric' }) : '\u2014';
+    return '<tr>' +
+      '<td><div class="app-name">' + esc(a.applicant_name||'Unknown') + '</div><div class="app-discord">' + esc(a.discord||'') + '</div></td>' +
+      '<td>' + esc(a.age||'\u2014') + '</td>' +
+      '<td>' + esc(a.hours||'\u2014') + '</td>' +
+      '<td style="font-size:0.82rem;color:#888">' + esc(a.hours_week||'\u2014') + '</td>' +
+      '<td style="font-size:0.82rem;color:#666">' + date + '</td>' +
+      '<td><span class="status-badge status-' + (a.status||'pending') + '">' + statusLabel(a.status) + '</span></td>' +
+      '<td><button class="btn-view" onclick="openMedicModal(\'' + a.id + '\')">View</button></td></tr>';
+  }).join('');
+}
+
+function openMedicModal(id) {
+  const app = cachedMedics.find(a => a.id === id);
+  if (!app) return;
+  currentMedicId = id;
+  function row(label, val, full) {
+    return '<div class="modal-field' + (full?' full':'') + '"><div class="mf-label">' + label + '</div><div class="mf-val">' + esc(val||'\u2014') + '</div></div>';
+  }
+  const date = app.submitted_at ? new Date(app.submitted_at).toLocaleString('en-GB') : '\u2014';
+  document.getElementById('modalTitle').textContent = (app.applicant_name||'Medic Application') + ' \u2014 ' + (app.discord||'');
+  document.getElementById('modalStatus').value = app.status || 'pending';
+  document.getElementById('modalBody').innerHTML =
+    '<div class="modal-section"><h4>&#128100; Personal</h4><div class="modal-grid">' +
+      row('Discord', app.discord) + row('Age', app.age) + row('Country', app.country) +
+      row('Timezone', app.timezone) + row('Community Since', app.community_length) + row('Submitted', date) +
+    '</div></div>' +
+    '<div class="modal-section"><h4>&#127918; DayZ Experience</h4><div class="modal-grid">' +
+      row('Hours', app.hours) + row('Time Playing', app.play_length) +
+    '</div></div>' +
+    '<div class="modal-section"><h4>&#9200; Availability</h4><div class="modal-grid">' +
+      row('Hours/Week', app.hours_week) + row('Active Days', app.active_days) + row('Active Times', app.active_times, true) +
+    '</div></div>' +
+    '<div class="modal-section"><h4>&#10133; Medic Suitability</h4><div class="modal-grid">' +
+      row('Why Medic?', app.why_medic, true) + row('RP Experience', app.rp_experience, true) +
+      row('Medical Knowledge', app.medical_knowledge, true) + row('Calm Under Pressure', app.calm_under_pressure, true) +
+      row('Ideal Loadout', app.loadout, true) +
+    '</div></div>' +
+    '<div class="modal-section"><h4>&#129504; Scenarios</h4><div class="modal-grid">' +
+      row('Scenario 1', app.scenario_1, true) + row('Scenario 2', app.scenario_2, true) + row('Scenario 3', app.scenario_3, true) +
+    '</div></div>' +
+    '<div class="modal-section"><h4>&#129309; Community</h4><div class="modal-grid">' +
+      row('Work With Staff', app.work_with_staff, true) + row('Goals', app.goals, true) + row('Anything Else', app.anything_else, true) +
+      row('Signature', app.signature) +
+    '</div></div>' +
+    '<div class="modal-section"><h4>&#128221; Admin Notes</h4>' +
+      '<textarea class="notes-area" id="modalNotes" rows="4" placeholder="Internal notes...">' + esc(app.admin_notes||'') + '</textarea>' +
+    '</div>';
+  document.getElementById('modalOverlay').classList.add('open');
+  document.getElementById('savedToast').style.display = 'none';
+  // override save/delete to use medic table
+  document.querySelector('.btn-save[onclick="saveModal()"]').onclick = saveMedicModal;
+  document.querySelector('.btn-delete').onclick = deleteMedicApp;
+}
+
+async function saveMedicModal() {
+  if (!currentMedicId) return;
+  const saveBtn = document.querySelector('#modalBox .btn-save');
+  saveBtn.textContent = 'Saving\u2026'; saveBtn.disabled = true;
+  try {
+    const patch = { status: document.getElementById('modalStatus').value, admin_notes: document.getElementById('modalNotes').value };
+    const res = await fetch(SB_URL + '/rest/v1/medic_applications?id=eq.' + currentMedicId, {
+      method: 'PATCH', headers: { ...HEADERS, 'Prefer': 'return=minimal' }, body: JSON.stringify(patch)
+    });
+    if (!res.ok) throw new Error(await res.text());
+    const idx = cachedMedics.findIndex(a => a.id === currentMedicId);
+    if (idx !== -1) { cachedMedics[idx].status = patch.status; cachedMedics[idx].admin_notes = patch.admin_notes; }
+    renderMedicTable();
+    document.getElementById('mstat-pending').textContent  = cachedMedics.filter(a => a.status === 'pending').length;
+    document.getElementById('mstat-accepted').textContent = cachedMedics.filter(a => a.status === 'accepted').length;
+    document.getElementById('mstat-rejected').textContent = cachedMedics.filter(a => a.status === 'rejected').length;
+    const toast = document.getElementById('savedToast');
+    toast.style.display = 'inline'; setTimeout(() => toast.style.display = 'none', 2000);
+  } catch(err) { alert('Save failed: ' + err.message); }
+  saveBtn.textContent = 'Save'; saveBtn.disabled = false;
+}
+
+async function deleteMedicApp() {
+  if (!currentMedicId) return;
+  if (!confirm('Delete this medic application? This cannot be undone.')) return;
+  try {
+    const res = await fetch(SB_URL + '/rest/v1/medic_applications?id=eq.' + currentMedicId, { method: 'DELETE', headers: HEADERS });
+    if (!res.ok) throw new Error(await res.text());
+    cachedMedics = cachedMedics.filter(a => a.id !== currentMedicId);
+    closeModal();
+    document.getElementById('mstat-total').textContent    = cachedMedics.length;
+    document.getElementById('mstat-pending').textContent  = cachedMedics.filter(a => a.status === 'pending').length;
+    document.getElementById('mstat-accepted').textContent = cachedMedics.filter(a => a.status === 'accepted').length;
+    document.getElementById('mstat-rejected').textContent = cachedMedics.filter(a => a.status === 'rejected').length;
+    renderMedicTable();
+  } catch(err) { alert('Delete failed: ' + err.message); }
+}
+
+// Restore staff modal buttons when opening a staff application
+const origOpenModal = openModal;
+window.openModal = function(id) {
+  origOpenModal(id);
+  currentMedicId = null;
+  document.querySelector('.btn-save[onclick]').onclick = saveModal;
+  document.querySelector('.btn-delete').onclick = deleteApp;
+};
+
+// ─── SUPABASE DONOR HELPERS ───
+async function sbGetDonors() {
+  const res = await fetch(SB_URL + '/rest/v1/donors?order=position.asc&select=*', { headers: HEADERS });
+  if (!res.ok) throw new Error(await res.text());
+  return res.json();
+}
+async function sbDeleteDonors() {
+  await fetch(SB_URL + '/rest/v1/donors?id=neq.00000000-0000-0000-0000-000000000000', { method: 'DELETE', headers: HEADERS });
+}
+async function sbInsertDonors(donors) {
+  if (!donors.length) return;
+  const res = await fetch(SB_URL + '/rest/v1/donors', {
+    method: 'POST', headers: { ...HEADERS, 'Prefer': 'return=minimal' },
+    body: JSON.stringify(donors)
+  });
+  if (!res.ok) throw new Error(await res.text());
+}
+
+// ─── SUPABASE SERVER INFO HELPERS ───
+async function sbGetServerInfo() {
+  const res = await fetch(SB_URL + '/rest/v1/server_info?select=*', { headers: HEADERS });
+  if (!res.ok) throw new Error(await res.text());
+  const rows = await res.json();
+  const obj = {};
+  rows.forEach(r => obj[r.key] = r.value);
+  return obj;
+}
+async function sbUpsertServerInfo(key, value) {
+  const res = await fetch(SB_URL + '/rest/v1/server_info', {
+    method: 'POST',
+    headers: { ...HEADERS, 'Prefer': 'resolution=merge-duplicates,return=minimal' },
+    body: JSON.stringify({ key, value })
+  });
+  if (!res.ok) throw new Error(await res.text());
+}
+
+// ─── DONOR ADMIN ───
+function addDonorRow(name='', tier='Supporter') {
+  const div = document.createElement('div');
+  div.className = 'donor-row';
+  div.innerHTML = `
+    <span class="drag-handle">&#9776;</span>
+    <input type="text" placeholder="Donor name..." value="${esc(name)}">
+    <select>
+      <option value="Supporter" ${tier==='Supporter'?'selected':''}>Supporter</option>
+      <option value="Bronze" ${tier==='Bronze'?'selected':''}>Bronze</option>
+      <option value="Silver" ${tier==='Silver'?'selected':''}>Silver</option>
+      <option value="Gold" ${tier==='Gold'?'selected':''}>Gold</option>
+      <option value="VIP" ${tier==='VIP'?'selected':''}>VIP</option>
+    </select>
+    <button class="btn-danger-sm" onclick="this.closest('.donor-row').remove()">&#10005;</button>`;
+  document.getElementById('donorRows').appendChild(div);
+}
+
+async function loadDonorAdmin() {
+  const rows = document.getElementById('donorRows');
+  rows.innerHTML = '<div style="color:#555;font-size:0.88rem;padding:0.5rem;">Loading...</div>';
+  try {
+    const donors = await sbGetDonors();
+    rows.innerHTML = '';
+    donors.forEach(d => addDonorRow(d.name, d.tier));
+    if (!donors.length) addDonorRow();
+  } catch(e) {
+    rows.innerHTML = `<div style="color:#e05a5a;font-size:0.88rem;">${esc(e.message)}</div>`;
+  }
+}
+
+async function saveDonors() {
+  const btn = document.querySelector('#tab-donors .btn-save');
+  btn.textContent = 'Saving...'; btn.disabled = true;
+  try {
+    const rows = document.querySelectorAll('#donorRows .donor-row');
+    const donors = [];
+    rows.forEach((row, i) => {
+      const name = row.querySelector('input').value.trim();
+      const tier = row.querySelector('select').value;
+      if (name) donors.push({ name, tier, position: i });
+    });
+    await sbDeleteDonors();
+    await sbInsertDonors(donors);
+    const toast = document.getElementById('donorToast');
+    toast.style.display = 'inline';
+    setTimeout(() => toast.style.display = 'none', 2000);
+  } catch(e) { alert('Save failed: ' + e.message); }
+  btn.textContent = 'Save Hall of Fame'; btn.disabled = false;
+}
+
+// ─── SERVER INFO ADMIN ───
+async function loadServerInfoAdmin() {
+  try {
+    const si = await sbGetServerInfo();
+    document.getElementById('si_server_name').value = si.server_name || '';
+    document.getElementById('si_server_ip').value   = si.server_ip   || '';
+    document.getElementById('si_query_port').value  = si.query_port  || '';
+    document.getElementById('si_max_players').value = si.max_players || '';
+    document.getElementById('si_map').value         = si.map         || '';
+    document.getElementById('si_mods').value        = si.mods        || '';
+    document.getElementById('si_discord').value     = si.discord     || '';
+    document.getElementById('si_rules').value       = si.rules ? si.rules.replace(/\|/g, '\n') : '';
+  } catch(e) { alert('Load failed: ' + e.message); }
+}
+
+async function saveServerInfo() {
+  const btn = document.querySelector('#tab-serverinfo .btn-save');
+  btn.textContent = 'Saving...'; btn.disabled = true;
+  try {
+    const fields = ['server_name','server_ip','query_port','max_players','map','mods','discord'];
+    for (const f of fields) {
+      await sbUpsertServerInfo(f, document.getElementById('si_' + f).value.trim());
+    }
+    const rules = document.getElementById('si_rules').value.trim().split('\n').filter(r => r.trim()).join('|');
+    await sbUpsertServerInfo('rules', rules);
+    const toast = document.getElementById('siToast');
+    toast.style.display = 'inline';
+    setTimeout(() => toast.style.display = 'none', 2000);
+  } catch(e) { alert('Save failed: ' + e.message); }
+  btn.textContent = 'Save Server Info'; btn.disabled = false;
+}
+
+// ─── PUBLIC SERVER INFO PAGE RENDER ───
+async function renderServerInfoPage() {
+  try {
+    const si = await sbGetServerInfo();
+    const ac = '#e8b84b';
+
+    // Stats
+    document.getElementById('si-stats').innerHTML = [
+      ['&#127758;', si.map || '—', 'Map'],
+      ['&#128101;', (si.max_players || '—') + ' Slots', 'Max Players'],
+      ['&#129399;', 'PvE', 'Game Mode'],
+      ['&#128187;', 'PC', 'Platform']
+    ].map(([icon,val,label]) => `
+      <div style="background:rgba(18,18,42,0.92);border:1px solid #2a2a50;border-top:3px solid ${ac};border-radius:8px;padding:1.1rem;text-align:center;">
+        <div style="font-size:1.6rem;">${icon}</div>
+        <div style="color:${ac};font-weight:700;font-size:0.95rem;margin-top:0.4rem;">${esc(val)}</div>
+        <div style="color:#666;font-size:0.75rem;text-transform:uppercase;letter-spacing:0.05em;">${label}</div>
+      </div>`).join('');
+
+    // Connection
+    const ip = si.server_ip || '—';
+    document.getElementById('si-connection').innerHTML = `
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
+        <div>
+          <div style="font-size:0.75rem;color:#666;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:0.4rem;">Server IP</div>
+          <div style="background:#0d0d1a;border:1px solid #2a2a50;border-radius:5px;padding:0.6rem 0.9rem;font-family:monospace;color:${ac};font-size:0.95rem;display:flex;justify-content:space-between;align-items:center;">
+            <span>${esc(ip)}</span>
+            <button onclick="copyText('${esc(ip)}',this)" style="background:transparent;border:none;color:#555;cursor:pointer;font-size:0.8rem;padding:0 0.25rem;">&#128203;</button>
+          </div>
+        </div>
+        <div>
+          <div style="font-size:0.75rem;color:#666;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:0.4rem;">Query Port</div>
+          <div style="background:#0d0d1a;border:1px solid #2a2a50;border-radius:5px;padding:0.6rem 0.9rem;font-family:monospace;color:#aaa;font-size:0.95rem;">${esc(si.query_port||'—')}</div>
+        </div>
+        <div style="grid-column:span 2;">
+          <div style="font-size:0.75rem;color:#666;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:0.4rem;">How to Connect</div>
+          <div style="background:#0d0d1a;border:1px solid #2a2a50;border-left:3px solid ${ac};border-radius:5px;padding:0.75rem 1rem;font-size:0.88rem;color:#aaa;line-height:1.7;">
+            1. Open DayZ → click <strong style="color:#ddd;">Servers</strong><br>
+            2. Click <strong style="color:#ddd;">Community</strong> tab<br>
+            3. Search <strong style="color:${ac};">${esc(si.server_name||'our server')}</strong> or paste the IP<br>
+            4. Click <strong style="color:#ddd;">Connect</strong> — see you on the island! 🏝️
+            ${si.discord ? `<br><br>&#128172; <a href="${esc(si.discord)}" target="_blank" style="color:${ac};">Join our Discord</a>` : ''}
+          </div>
+        </div>
+      </div>`;
+
+    // Mods
+    const mods = (si.mods || '').split(',').map(m => m.trim()).filter(Boolean);
+    document.getElementById('si-mods').innerHTML = mods.length
+      ? mods.map(m => `<div style="background:#0d0d1a;border:1px solid #2a2a50;border-radius:6px;padding:0.65rem 0.9rem;font-size:0.88rem;color:#ddd;display:flex;align-items:center;gap:0.5rem;"><span style="color:${ac};">&#9654;</span>${esc(m)}</div>`).join('')
+      : '<div style="color:#555;">No mods listed.</div>';
+
+    // Rules
+    const rules = (si.rules || '').split('|').filter(Boolean);
+    document.getElementById('si-rules').innerHTML = rules.length
+      ? rules.map((r,i) => `
+        <div style="background:#0d0d1a;border:1px solid #2a2a50;border-left:3px solid ${ac};border-radius:5px;padding:0.75rem 1rem;font-size:0.88rem;color:#ccc;display:flex;gap:0.75rem;align-items:flex-start;">
+          <span style="color:${ac};font-weight:700;min-width:22px;">${i+1}.</span>
+          <span>${esc(r.trim())}</span>
+        </div>`).join('')
+        + '<div style="margin-top:0.5rem;font-size:0.8rem;color:#555;font-style:italic;text-align:center;">Breaking any rules may result in a kick, ban, or wipe depending on severity.</div>'
+      : '<div style="color:#555;">No rules listed.</div>';
+  } catch(e) { console.error('Server info load failed:', e); }
+}
+
+// ─── PUBLIC HALL OF FAME PAGE RENDER ───
+async function renderHofPage() {
+  try {
+    const donors = await sbGetDonors();
+    const podium = document.getElementById('hofPodium');
+    const list   = document.getElementById('hofList');
+    const ac = '#e8b84b';
+
+    if (!donors.length) {
+      podium.innerHTML = '<div style="color:#555;text-align:center;padding:2rem;">No donors yet — be the first to support the server!</div>';
+      list.innerHTML = '';
+      return;
+    }
+
+    const tierIcons = { Gold:'&#127947;', Silver:'&#129352;', Bronze:'&#129353;', VIP:'&#11088;', Supporter:'&#128142;' };
+    const tierColors = { Gold: ac, Silver:'#C0C0C0', Bronze:'#CD7F32', VIP:'#a78bfa', Supporter:'#aaa' };
+
+    // Podium — first 3
+    const top3 = donors.slice(0, 3);
+    const podiumOrder = top3.length >= 2 ? [top3[1], top3[0], top3[2]] : [top3[0]];
+    const podiumSizes = [180, 200, 180];
+    const podiumPad   = ['1.5rem 1.25rem', '1.75rem 1.25rem', '1.25rem'];
+
+    podium.innerHTML = podiumOrder.filter(Boolean).map((d, idx) => {
+      const isFirst = d === top3[0];
+      const color = tierColors[d.tier] || '#aaa';
+      const icon  = tierIcons[d.tier]  || '&#128142;';
+      const size  = isFirst ? podiumSizes[1] : podiumSizes[0];
+      const pad   = isFirst ? podiumPad[1]   : podiumPad[0];
+      return `<div style="background:rgba(18,18,42,0.92);border:${isFirst?'2px solid '+ac:'1px solid #2a2a50'};border-radius:10px;padding:${pad};text-align:center;width:${size}px;${isFirst?'box-shadow:0 0 24px rgba(232,184,75,0.2);':''}">
+        <div style="font-size:${isFirst?'2.5':'2'}rem;">${icon}</div>
+        <div style="color:${color};font-weight:700;font-size:${isFirst?'1.2':'1.05'}rem;margin-top:0.5rem;">${esc(d.name)}</div>
+        <div style="color:#666;font-size:0.8rem;margin-top:0.25rem;">${esc(d.tier)} Supporter</div>
+        ${isFirst ? `<div style="margin-top:0.75rem;background:rgba(232,184,75,0.1);border-radius:4px;padding:0.25rem 0.5rem;font-size:0.75rem;color:${ac};">⭐ Top Donator</div>` : ''}
+      </div>`;
+    }).join('');
+
+    // Full list
+    list.innerHTML = donors.map(d => {
+      const icon = tierIcons[d.tier] || '&#128142;';
+      return `<div class="hof-card"><span class="hof-icon">${icon}</span><span class="hof-name">${esc(d.name)}</span><span class="hof-tier">${esc(d.tier)}</span></div>`;
+    }).join('');
+  } catch(e) { console.error('HoF load failed:', e); }
+}
+
 const STATUS_MESSAGES = {
   pending:  'Your application has been received and is currently in the queue waiting to be reviewed by our staff team. Please be patient — we will get to it soon!',
   review:   'Great news — your application is currently being reviewed by our staff team. We will be in touch shortly with a decision.',
